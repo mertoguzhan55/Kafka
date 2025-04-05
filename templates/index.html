@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kafka Button Click</title>
+    
+</head>
+<body>
+    <h1>Click the Button to Send to Kafka</h1>
+    <button type="button" onclick="sendClick()">Click Me!</button>
+</body>
+
+<script>
+    async function sendClick() {
+        try {
+            const response = await fetch('/send', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+            const result = await response.json();
+            alert(result.status);
+        } catch (error) {
+            console.error("Error sending click event:", error);
+        }
+    }
+</script>
+
+</html>
