@@ -3,7 +3,7 @@ import json
 
 
 consumer = KafkaConsumer(
-    'payment',
+    'test-topic',
     bootstrap_servers=['localhost:9092', 'localhost:9093', 'localhost:9094'],
     auto_offset_reset='earliest',
     #auto_offset_reset='latest',  # En yeni mesajlardan başla
@@ -11,7 +11,7 @@ consumer = KafkaConsumer(
 )
 
 for message in consumer:
-    print(f"Received: {message.value}")
+    print(f"Topic: {message.topic}, Partition: {message.partition}, Offset: {message.offset}, Value: {message.value.decode('utf-8')}")
 
 
 
