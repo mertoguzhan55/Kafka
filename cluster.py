@@ -1,5 +1,4 @@
 from kafka.admin import KafkaAdminClient
-from kafka import KafkaConsumer
 
 
 admin_client = KafkaAdminClient(
